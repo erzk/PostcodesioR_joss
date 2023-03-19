@@ -24,33 +24,13 @@ journal: JOSS
 
 # Summary
 
-``PostcodesioR`` is an API wrapper around ``postcodes.io``, free UK postcode look-up and geocoder. This package helps to find and transform information about UK administrative geography like postcodes, LSOA, MSOA, constituencies, counties, wards, districts, CCG or NUTS. Here, we present a new geocoding package designed specifically for the UK context, which addresses these challenges and provides accurate and reliable geocoding results for a wide range of applications.
+``PostcodesioR`` is an API wrapper around ``postcodes.io``. It is a free UK postcode look up and geocoder. This package helps to find and transform information about UK administrative geography like postcodes, LSOA, MSOA, constituencies, counties, wards, districts, CCG or NUTS. Here, we present a new geocoding package designed specifically for the UK context, which addresses these challenges and provides accurate and reliable geocoding results for a wide range of applications.
 
 # Statement of need
 
-Geocoding is the process of converting location-based information such as addresses into corresponding geographic coordinates. It is a crucial step in many analytic tasks involving geographic data. However, matching UK administrative borders with corresponding postcodes has long been a challenge for researchers and practitioners alike due to the complex and ever-changing nature of the UK's administrative geography. 
+Geocoding is a process of converting location-based information such as addresses into corresponding geographic coordinates. It is a crucial step in many analytic tasks involving geographic data [@Lovelace:2019]. However, matching UK administrative borders with corresponding postcodes has long been a challenge for researchers and practitioners alike due to the complex and ever-changing nature of the UK's administrative geography [@ONS:2023]. 
 
 The package is based exclusively on open data provided by ``postcodes.io`` using open ONS data. ``PostcodesioR`` can be used by data scientists or social scientists working with geocoded UK data. A common task when working with such data is aggregating geocoded data on different administrative levels, e.g. turning postcode-level data into counties or regions. This package can help in achieving this and in many other cases when changing the aggregation of geographic data is required.
-
-<!-- ``Gala`` is an Astropy-affiliated Python package for galactic dynamics. Python -->
-<!-- enables wrapping low-level languages (e.g., C) for speed without losing -->
-<!-- flexibility or ease-of-use in the user-interface. The API for ``Gala`` was -->
-<!-- designed to provide a class-based and user-friendly interface to fast (C or -->
-<!-- Cython-optimized) implementations of common operations such as gravitational -->
-<!-- potential and force evaluation, orbit integration, dynamical transformations, -->
-<!-- and chaos indicators for nonlinear dynamics. ``Gala`` also relies heavily on and -->
-<!-- interfaces well with the implementations of physical units and astronomical -->
-<!-- coordinate systems in the ``Astropy`` package [@astropy] (``astropy.units`` and -->
-<!-- ``astropy.coordinates``). -->
-
-<!-- ``Gala`` was designed to be used by both astronomical researchers and by -->
-<!-- students in courses on gravitational dynamics or astronomy. It has already been -->
-<!-- used in a number of scientific publications [@Pearson:2017] and has also been -->
-<!-- used in graduate courses on Galactic dynamics to, e.g., provide interactive -->
-<!-- visualizations of textbook material [@Binney:2008]. The combination of speed, -->
-<!-- design, and support for Astropy functionality in ``Gala`` will enable exciting -->
-<!-- scientific explorations of forthcoming data releases from the *Gaia* mission -->
-<!-- [@gaia] by students and experts alike. -->
 
 # Examples
 
@@ -88,11 +68,11 @@ library(PostcodesioR)
 
 ## Geocoding
 
-Where possible, I tried to return a data frame. Unfortunately, a lot of API calls return more complex data and in those cases it is safer to use lists. The API limits the number of returned calls. Check functions' documentation for more details.
+Where possible, we tried to return a data frame. However, a lot of API calls return more complex data and in those cases it is safer to use lists. The API limits the number of returned calls. Consult the documentation for more details.
 
 For additional information about the returned data and the function calls see the original [documentation](https://postcodes.io/docs).
 
-The main function of this package provides information related to a given postcode
+The main function of this package provides information related to a given UK postcode
 
 
 ```r
@@ -126,59 +106,29 @@ names(lookup_result)
 
 Read the package's [vignette](https://docs.ropensci.org/PostcodesioR/articles/Introduction.html) to extensive documentation of all functions used in the package.
 
-The remaining functions are
+The remaining functions are:
 
-* `bulk_postcode_lookup()`	# Bulk postcode lookup
-* bulk_reverse_geocoding	# Bulk reverse geocoding
-nearest_outcode	# Find the nearest outcode
-nearest_outcode_lonlat # Find the nearest outcodes given longitude and latitude
-nearest_postcode # Find the nearest postcode
-outcode_reverse_geocoding	# Outcode reverse geocoding
-outward_code_lookup	# Outward code lookup
-place_lookup	# Place lookup
-place_query	# Place query
-postcode_autocomplete	# Postcode autocomplete
-postcode_lookup	# Postcode lookup
-postcode_query	# Postcode query
-postcode_validation	# Postcode validation
-random_place	# Generate a random place
-random_postcode	# Generate a random postcode
-reverse_geocoding	# Reverse geocoding
-scottish_postcode_lookup	# Scottish postcode lookup
-terminated_postcode	# Terminated postcode lookup
-
-
-<!-- Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$ -->
-
-<!-- Double dollars make self-standing equations: -->
-
-<!-- $$\Theta(x) = \left\{\begin{array}{l} -->
-<!-- 0\textrm{ if } x < 0\cr -->
-<!-- 1\textrm{ else} -->
-<!-- \end{array}\right.$$ -->
-
-
-<!-- # Citations -->
-
-<!-- Citations to entries in paper.bib should be in -->
-<!-- [rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html) -->
-<!-- format. -->
-
-<!-- For a quick reference, the following citation commands can be used: -->
-<!-- - `@author:2001`  ->  "Author et al. (2001)" -->
-<!-- - `[@author:2001]` -> "(Author et al., 2001)" -->
-<!-- - `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)" -->
-
-<!-- # Rendered R Figures -->
-
-<!-- Figures can be plotted like so: -->
-
-<!-- ```{r} -->
-<!-- plot(1:10) -->
-<!-- ``` -->
+* `bulk_postcode_lookup()` - Bulk postcode look up
+* `bulk_reverse_geocoding()` - Bulk reverse geocoding
+* `nearest_outcode()`	- Find the nearest outcode
+* `nearest_outcode_lonlat()` - Find the nearest outcodes given longitude and latitude
+* `nearest_postcode()` - Find the nearest postcode
+* `outcode_reverse_geocoding()`	- Outcode reverse geocoding
+* `outward_code_lookup()`	- Outward code look up
+* `place_lookup()`	- Place look up
+* `place_query()`	- Place query
+* `postcode_autocomplete()`	- Postcode autocomplete
+* `postcode_lookup()`	- Postcode look up
+* `postcode_query()`	- Postcode query
+* `postcode_validation()`	- Postcode validation
+* `random_place()`	- Generate a random place
+* `random_postcode()`	- Generate a random postcode
+* `reverse_geocoding()`	- Reverse geocoding
+* `scottish_postcode_lookup()`	- Scottish postcode look up
+* `terminated_postcode()`	- Terminated postcode look up
 
 # Acknowledgements
 
-We acknowledge rOpenSci reviewers and package contributors (listed on the package's GitHub page).
+We acknowledge ``rOpenSci`` reviewers and package contributors. Detailed contributions are listed on the package's GitHub page.
 
 # References
